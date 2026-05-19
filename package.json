@@ -2,6 +2,14 @@
   "name": "@mcp2skills/start",
   "version": "1.0.0",
   "description": "Run mcp2skills locally with a single npx command",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamesev15/mcp2skills.git"
+  },
+  "homepage": "https://github.com/jamesev15/mcp2skills/blob/main/README.md",
+  "bugs": {
+    "url": "https://github.com/jamesev15/mcp2skills/issues"
+  },
   "license": "MIT",
   "bin": {
     "mcp2skills-start": "bin/start.cjs"
