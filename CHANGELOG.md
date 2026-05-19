@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/jamesev15/mcp2skills/compare/v1.0.1...v1.0.2) (2026-05-19)
+
+
+### Bug Fixes
+
+* baseurl and port ([14c165a](https://github.com/jamesev15/mcp2skills/commit/14c165ab219ca1a7bcbd57d0f08948ba75146f09))
+
 ## [1.0.1](https://github.com/jamesev15/mcp2skills/compare/v1.0.0...v1.0.1) (2026-05-19)
 
 
