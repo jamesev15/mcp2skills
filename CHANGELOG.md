@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/jamesev15/mcp2skills/compare/v1.0.0...v1.0.1) (2026-05-19)
+
+
+### Bug Fixes
+
+* github urls ([242857f](https://github.com/jamesev15/mcp2skills/commit/242857f331507299a47583fa99cdb5d872e04721))
+
 # 1.0.0 (2026-05-19)
 
 
