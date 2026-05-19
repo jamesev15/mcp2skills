@@ -1,0 +1,48 @@
+{
+  "name": "@mcp2skills/start",
+  "version": "0.1.0",
+  "description": "Run mcp2skills locally with a single npx command",
+  "license": "MIT",
+  "bin": {
+    "mcp2skills-start": "bin/start.cjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "data",
+    "next-env.d.ts",
+    "next.config.ts",
+    "postcss.config.js",
+    "tailwind.config.ts",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "start:local": "node bin/start.cjs",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "jszip": "^3.10.1",
+    "next": "^15.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4",
+    "postcss": "^8.4",
+    "tailwindcss": "^3.4",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.0.0 <23.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
