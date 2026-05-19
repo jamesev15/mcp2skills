@@ -4,7 +4,7 @@ const { spawn } = require('node:child_process');
 const path = require('node:path');
 const fs = require('node:fs');
 
-const DEFAULT_PORT = 4310;
+const DEFAULT_PORT = 3000;
 
 function parseArgs(argv) {
   const args = {
