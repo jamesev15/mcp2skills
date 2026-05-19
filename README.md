@@ -26,9 +26,3 @@ Supported flags:
 Registered servers are persisted in:
 
 - `$HOME/.mcp2skills/servers.json`
-
-## Environment variable
-
-- `APP_BASE_URL` (optional): base URL embedded in generated skill ZIPs.
-
-If not set, the CLI uses `http://<host>:<port>`.
