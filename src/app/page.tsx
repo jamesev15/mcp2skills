@@ -204,7 +204,7 @@ export default function HomePage() {
             id: server.id,
             name: server.name,
             ok: true,
-            message: `Installed in ${data.installedPath}`,
+            message: `Installed in ${data.installedPathDisplay ?? data.installedPath}`,
           });
         } catch {
           results.push({

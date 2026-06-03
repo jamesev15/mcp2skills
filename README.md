@@ -5,21 +5,10 @@ Run mcp2skills locally to register MCP servers, discover tools, and generate ski
 ## Quick start
 
 ```bash
-npx @mcp2skills/start
+npm run dev
 ```
 
 Open `http://127.0.0.1:3000`.
-
-## CLI options
-
-```bash
-npx @mcp2skills/start --port 3456 --host 0.0.0.0
-```
-
-Supported flags:
-
-- `--port`, `-p` (default: `3000`)
-- `--host`, `-H` (default: `127.0.0.1`)
 
 ## Local data persistence
 

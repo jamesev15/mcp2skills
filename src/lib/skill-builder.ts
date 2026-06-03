@@ -74,18 +74,48 @@ which maps a stable server id to the remote MCP URL.
 ## Setup
 1. Ensure mcp2skills is running and reachable at \`${baseUrl}\`.
 2. Optional: override generated base URL with \`MCP_PROXY_BASE_URL\` (example: \`http://localhost:3000\`).
-3. Execute tools with TypeScript wrappers from \`code_refs/\` as the default workflow.
+3. Use the TypeScript examples from \`code_refs/\` to generate task-specific executable code.
+
+## Runtime Requirements
+- Node.js 20 or newer is recommended because generated code can use the built-in \`fetch\` API.
+- Do not assume TypeScript runners such as \`tsx\` are installed.
+- If execution requires installing a runner or accessing localhost from a sandboxed environment, request permission first.
 
 ## Tools
 ${toolLines || '_No tools discovered._'}
 
 ## Execution Policy
-- Use \`code_refs/*.ts\` wrappers for all normal execution.
+- Treat \`code_refs/*.ts\` as reference implementations, not standalone executable scripts.
+- For each task, write a temporary runner that follows the relevant \`code_refs/\` example, calls the needed tool(s), and prints JSON output.
+- Prefer a plain Node.js runner when that is enough; use TypeScript only when a TypeScript runtime is already available or can be installed with permission.
 - Do not use \`curl\` as the primary invocation path.
 - Use raw HTTP only for explicit troubleshooting/debugging.
 
 ## Usage
-Each \`code_refs/<tool_name>.ts\` contains a TypeScript wrapper that calls the local proxy endpoint via \`code_refs/_shared.ts\`.
+Each \`code_refs/<tool_name>.ts\` shows the expected input shape, output shape, and proxy endpoint for one tool.
+
+Example runner workflow:
+\`\`\`bash
+mkdir -p tmp
+$EDITOR tmp/run-tool.mjs
+node tmp/run-tool.mjs
+\`\`\`
+
+Example runner shape:
+\`\`\`js
+const baseUrl = process.env.MCP_PROXY_BASE_URL ?? "${baseUrl}";
+const response = await fetch(\`\${baseUrl}/api/mcp/${server.id}/tools/<tool_name>\`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    arguments: {
+      // Fill arguments from the user's request.
+    },
+  }),
+});
+
+console.log(JSON.stringify(await response.json(), null, 2));
+\`\`\`
 
 ## Proxy Response Shape
 Tool calls return an MCP envelope. Generated wrappers extract data with this precedence:

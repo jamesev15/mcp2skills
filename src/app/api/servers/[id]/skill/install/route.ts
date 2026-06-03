@@ -26,6 +26,21 @@ function resolveInstallRoot(target: string | null): string | null {
   return null;
 }
 
+function formatHomePath(filePath: string): string {
+  const homeDir = os.homedir();
+  const relativePath = path.relative(homeDir, filePath);
+
+  if (relativePath === '') {
+    return '$HOME';
+  }
+
+  if (!relativePath.startsWith('..') && !path.isAbsolute(relativePath)) {
+    return `$HOME/${relativePath.split(path.sep).join('/')}`;
+  }
+
+  return filePath;
+}
+
 export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -76,6 +91,7 @@ export async function POST(
       JSON.stringify({
         ok: true,
         installedPath: skillPath,
+        installedPathDisplay: formatHomePath(skillPath),
         installTarget: target ?? 'claude',
         skillName: safeName,
         filesWritten: files.length,
